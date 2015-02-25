@@ -2,29 +2,23 @@
   "name": "simple-auth",
   "description": "Simple password-based authentication for Foxx.",
   "author": "ArangoDB GmbH",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "Apache License, Version 2.0",
-
   "repository": {
     "type": "git",
     "url": "https://github.com/arangodb/foxx-simple-auth.git"
   },
-
   "contributors": [
     {
       "name": "Alan Plum",
       "email": "me@pluma.io"
     }
   ],
-
   "exports": {
     "auth": "auth.js"
   },
-
   "defaultDocument": "",
-
   "lib": ".",
-
   "configuration": {
     "hashMethod": {
       "description": "Cryptographic hash function to use for new passwords.",
