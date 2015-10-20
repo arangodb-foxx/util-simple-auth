@@ -1,6 +1,6 @@
-# The Simple Authentication App
+# Simple Authentication
 
-The simple authentication app provides hashed password-based authentication with automatically generated salts and constant-time password verification with SHA and MD5 hashing algorithms. The authentication is good enough for non-critical use cases but should not be considered very secure due to the limited nature of the hashing algorithms in use.
+The simple authentication utility service provides hashed password-based authentication with automatically generated salts and constant-time password verification with SHA and MD5 hashing algorithms. The authentication is good enough for non-critical use cases but should not be considered very secure due to the limited nature of the hashing algorithms in use.
 
 ## Configuration
 
@@ -9,14 +9,34 @@ This app has the following configuration options:
 * *hashMethod* (optional): cryptographic hash function to use for new passwords. Default: `"sha256"`.
 * *saltLength* (optional): length of new salts. Default: `16`.
 
-## JavaScript API: *auth*
+## JavaScript API
 
-This app exposes its functionality via a JavaScript API named *auth*.
+This app exposes its functionality via a JavaScript API.
 
-*Examples*
+**Examples**
+
+First add this app to your dependencies:
 
 ```js
-var auth = Foxx.requireApp('/simple-auth').auth;
+{
+  ...
+  "dependencies": {
+    "auth": "util-simple-auth:^2.0.0"
+  }
+  ...
+}
+```
+
+Once you've configured both apps correctly, you can use it like this:
+
+```js
+var Foxx = require('org/arangodb/foxx');
+var controller = new Foxx.Controller(applicationContext);
+var auth = applicationContext.dependencies.auth;
+
+// later ...
+
+var result = auth.hashPassword('keyboardcat');
 ```
 
 ### Generate an authentication object
